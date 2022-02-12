@@ -1,35 +1,31 @@
-﻿/** Пример и использованием интерфейсов
+﻿/**
+ * Это пример реализации полиморфизма силами классов,
+ * как это происходило бы без интерфейсов
  */
-namespace Example7
+namespace Example6
 {
-    class Address : Example5.Address, IPrintable
+    class SuperAddress : ThisClassCanToPrint
     {
-        public Building build = new Building();
+        override public void Print()
+        {
+            Console.WriteLine($"This is an Address");
+        }
     }
 
-    class Building : Example5.Building//, IPrintable
+    class Building : ThisClassCanToPrint
     {
-        //public void Print()
-        //{
-        //    print();
-        //}
+        override public void Print()
+        {
+            Console.WriteLine($"This is a Build");
+        }
     }
 
-    //class User : IPrintable
-    //{
-    //    public string name = "";
-    //    public string surname = "";
-    //    public Address address = new Address();
-
-    //    public void Print()
-    //    {
-    //        Console.WriteLine($"{name} {surname}");
-    //    }
-    //}
-
-    interface IPrintable
+    class ThisClassCanToPrint
     {
-        void Print();
+        public virtual void Print()
+        {
+            Console.WriteLine($"I can to print, bun I have no any data");
+        }
     }
 
     class Runner
@@ -37,39 +33,11 @@ namespace Example7
         public static void Go()
         {
 
-            Address address = new Address
-            {
-                country = "Russia",
-                city = "Vladimir",
-                street = "Puskina",
-                postalCode = 600000,
-                build = new Building
-                {
-                    number = 11,
-                    apartment = 4,
-                    literal = "a",
-                }
+            SuperAddress address = new SuperAddress();
+            Building build = new Building();
 
-            };
-
-            //User user = new User
-            //{
-            //    name = "Вася",
-            //    surname = "Петрович",
-            //};
-
-            Console.WriteLine("Address:");
-            //address.Print();
-            //address.build.Print();
-
-            //user.Print();
-
-            IPrintable[] toPrintArray = { address } //, address.build };
-
-            for (int i = 0; i < toPrintArray.Length; i++)
-            {
-                toPrintArray[i].Print();
-            }
+            address.Print();
+            build.Print();
 
         }
     }
