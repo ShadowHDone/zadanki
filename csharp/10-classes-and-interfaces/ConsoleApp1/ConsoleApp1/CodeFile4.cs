@@ -1,20 +1,25 @@
-﻿
-namespace Example4
+﻿/**
+ * Простейшее объединение нескольких свойств в один тип "Address"
+ */
+namespace Example
 {
     class Address
     {
-        public string country = "";
-        public string city = "";
-        public string street = "";
+        /**
+         * Всё это ниже -- значения по умолчанию, их можно заменить
+         */
+        public string country = "Russia";
+        public string city = "Vladimir";
+        public string street = "Puskina";
         public Building build = new Building();
-        public int postalCode;
+        public int postalCode = 600000;
     }
 
     class Building
     {
-        public int number;
-        public string literal = "";
-        public int apartment;
+        public int number = 11;
+        public string literal = "а";
+        public int apartment = 4;
     }
 
     class Runner
@@ -22,22 +27,11 @@ namespace Example4
         public static void Go()
         {
 
-            Address address = new Address
-            {
-                country = "Russia",
-                city = "Vladimir",
-                street = "Puskina",
-                postalCode = 600000,
-                build = new Building
-                {
-                    number = 11,
-                    apartment = 4,
-                    literal = "a",
-                }
-
-            };
+            Address address = new Address();
 
             //Address address2 = new Address();
+            //address2.city = "Moscow";
+            //address2.postalCode = 123001;
 
             Console.WriteLine("Address:");
             Console.WriteLine($"{address.country}, {address.city}");

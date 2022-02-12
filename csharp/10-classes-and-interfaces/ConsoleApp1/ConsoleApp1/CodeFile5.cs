@@ -5,7 +5,7 @@
  */
 namespace Example5
 {
-    class Address : Example4.Address
+    class Address : Example.Address
     {
         public void Print()
         {
@@ -31,7 +31,7 @@ namespace Example5
         }
     }
 
-    class Building : Example4.Building
+    class Building : Example.Building
     {
         // TODO: Исправить на Print, т.к. у нас из-за разных названий ошибки.
         public void print()
