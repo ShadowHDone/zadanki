@@ -8,7 +8,7 @@ namespace Example // Note: actual namespace depends on the project name.
     {
         public static void Main(string[] args)
         {
-            //Example6.Runner.Go();
+            //Runner.Go();
         }
 
         static void GoSort()

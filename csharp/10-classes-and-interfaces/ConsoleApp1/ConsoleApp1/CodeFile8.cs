@@ -64,7 +64,7 @@ namespace Example7
 
             //user.Print();
 
-            IPrintable[] toPrintArray = { address } //, address.build };
+            IPrintable[] toPrintArray = { address }; //, address.build };
 
             for (int i = 0; i < toPrintArray.Length; i++)
             {
