@@ -1,11 +1,11 @@
 ﻿/**
  * TODO:
- * 1. Добавить прослойку между Example5 и Example4 с более простым наследованием, без методов
- * 2. Дополнительно добавить описание и демонстрацию движения по дереву наследований
+ * 1. Дополнительно добавить описание и демонстрацию движения по дереву наследований
+ * 2. Пересмотреть пример с типом building
  */
-namespace Example5
+namespace Example
 {
-    class Address : Example.Address
+    class Address3 : Address2
     {
         public void Print()
         {
@@ -18,11 +18,11 @@ namespace Example5
             // такой метод имеет, а ещё является развитием старого Example4.Building.
             // Благодаря этому в старую переменную build можно вписать новый, более крутой класс.
             // Однако надо убедиться, что build является более крутым, это тут и выполняется:
-            if (build is Example5.Building)
+            if (build is Building3)
             {
                 // ((Example5.Building)build) позвоялет явно показать программе, что мы уверены,
                 // что этот объект улучшенного класса.
-                Building modernBuilding = (Example5.Building)build;
+                Building3 modernBuilding = (Building3)build;
                 modernBuilding.print();
             }
             // Если build будет не типа Example5.Building (то есть будет типа Example4.Building),
@@ -31,7 +31,7 @@ namespace Example5
         }
     }
 
-    class Building : Example.Building
+    class Building3 : Building
     {
         // TODO: Исправить на Print, т.к. у нас из-за разных названий ошибки.
         public void print()
@@ -40,18 +40,18 @@ namespace Example5
         }
     }
 
-    class Runner
+    class Runner3
     {
         public static void Go()
         {
-            Building build = new Building
+            Building3 build = new Building3
             {
                 number = 723,
                 apartment = 6,
                 literal = "a",
             };
 
-            Address address = new Address
+            Address3 address = new Address3
             {
                 country = "Russia",
                 city = "Vladimir",

@@ -1,13 +1,13 @@
 ﻿/** Пример и использованием интерфейсов
  */
-namespace Example7
+namespace Example
 {
-    class Address : Example5.Address, IPrintable
+    class Address4 : Address3, IPrintable
     {
-        public Building build = new Building();
+        public Building4 build = new Building4();
     }
 
-    class Building : Example5.Building//, IPrintable
+    class Building4 : Building3//, IPrintable
     {
         //public void Print()
         //{
@@ -32,18 +32,18 @@ namespace Example7
         void Print();
     }
 
-    class Runner
+    class Runner4
     {
         public static void Go()
         {
 
-            Address address = new Address
+            Address4 address = new Address4
             {
                 country = "Russia",
                 city = "Vladimir",
                 street = "Puskina",
                 postalCode = 600000,
-                build = new Building
+                build = new Building4
                 {
                     number = 11,
                     apartment = 4,

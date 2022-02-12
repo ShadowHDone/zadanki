@@ -2,24 +2,8 @@
  * Это пример реализации полиморфизма силами классов,
  * как это происходило бы без интерфейсов
  */
-namespace Example6
+namespace Example
 {
-    class SuperAddress : ThisClassCanToPrint
-    {
-        override public void Print()
-        {
-            Console.WriteLine($"This is an Address");
-        }
-    }
-
-    class Building : ThisClassCanToPrint
-    {
-        override public void Print()
-        {
-            Console.WriteLine($"This is a Build");
-        }
-    }
-
     class ThisClassCanToPrint
     {
         public virtual void Print()
@@ -28,13 +12,29 @@ namespace Example6
         }
     }
 
-    class Runner
+    class SuperAddress : ThisClassCanToPrint
+    {
+        override public void Print()
+        {
+            Console.WriteLine($"This is an Address");
+        }
+    }
+
+    class SuperBuilding : ThisClassCanToPrint
+    {
+        override public void Print()
+        {
+            Console.WriteLine($"This is a Build");
+        }
+    }
+
+    class Runner4
     {
         public static void Go()
         {
 
             SuperAddress address = new SuperAddress();
-            Building build = new Building();
+            SuperBuilding build = new SuperBuilding();
 
             address.Print();
             build.Print();
