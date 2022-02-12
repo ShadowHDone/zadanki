@@ -2,12 +2,17 @@
  */
 namespace Example
 {
-    class Address4 : Address3, IPrintable
+    class Address5 : Address3, IPrintable
     {
-        public Building4 build = new Building4();
+        /**
+         * Увы, но с изменением типов полей у потомков в ООП есть определённые ограничения,
+         * которые иногда становятся недостатками, как тут. Код строкой ниже скомпилируется,
+         * но не рекомендуется
+         */
+        public Building5 build = new Building5();
     }
 
-    class Building4 : Building3//, IPrintable
+    class Building5 : Building3//, IPrintable
     {
         //public void Print()
         //{
@@ -32,25 +37,12 @@ namespace Example
         void Print();
     }
 
-    class Runner4
+    class Runner5
     {
         public static void Go()
         {
 
-            Address4 address = new Address4
-            {
-                country = "Russia",
-                city = "Vladimir",
-                street = "Puskina",
-                postalCode = 600000,
-                build = new Building4
-                {
-                    number = 11,
-                    apartment = 4,
-                    literal = "a",
-                }
-
-            };
+            Address5 address = new Address5();
 
             //User user = new User
             //{
